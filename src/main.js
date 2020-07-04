@@ -22,8 +22,18 @@ Vue.use(Vuesax)
 import axios from "./axios.js"
 Vue.prototype.$http = axios
 
+// API Calls
+import "./http/requests"
+
+// mock
+import "./fake-db/index.js"
+
 // Theme Configurations
 import '../themeConfig.js'
+
+
+// ACL
+import acl from './acl/acl'
 
 
 // Globally Registered Components
@@ -46,6 +56,40 @@ import router from './router'
 import store from './store/store'
 
 
+// i18n
+import i18n from './i18n/i18n'
+
+
+// Vuexy Admin Filters
+import './filters/filters'
+
+
+// Clipboard
+import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard);
+
+
+// Tour
+import VueTour from 'vue-tour'
+Vue.use(VueTour)
+require('vue-tour/dist/vue-tour.css')
+
+
+// VeeValidate
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
+
+
+// Google Maps
+import * as VueGoogleMaps from 'vue2-google-maps'
+Vue.use(VueGoogleMaps, {
+    load: {
+        // Add your API key here
+        key: 'YOUR_API_KEY',
+        libraries: 'places', // This is required if you use the Auto complete plug-in
+    },
+})
+
 // Vuejs - Vue wrapper for hammerjs
 import { VueHammer } from 'vue2-hammer'
 Vue.use(VueHammer)
@@ -60,10 +104,17 @@ import 'prismjs/themes/prism-tomorrow.css'
 require('./assets/css/iconfont.css')
 
 
+// Vue select css
+// Note: In latest version you have to add it separately
+// import 'vue-select/dist/vue-select.css';
+
+
 Vue.config.productionTip = false
 
 new Vue({
     router,
     store,
+    i18n,
+    acl,
     render: h => h(App)
 }).$mount('#app')

@@ -13,7 +13,7 @@
         {'header-open': isHovered || showChildren}
         ]">
       <feather-icon :icon="header.icon" svgClasses="h-5 w-5" class="mr-3" />
-      <span class="whitespace-no-wrap">{{  header.header }}</span>
+      <span class="whitespace-no-wrap">{{ $t(header.i18n) || header.header }}</span>
       <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4" class="ml-1" />
     </div>
 
@@ -28,7 +28,7 @@
               :icon="item.icon" :target="item.target"
               :isDisabled="item.isDisabled"
               :slug="item.slug">
-                <span class="truncate">{{  item.name }}</span>
+                <span class="truncate">{{ $t(item.i18n) || item.name }}</span>
                 <vs-chip :color="item.tagColor" v-if="item.tag">{{ item.tag }}</vs-chip>
             </h-nav-menu-item>
           </template>

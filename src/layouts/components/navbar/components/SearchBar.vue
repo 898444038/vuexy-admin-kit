@@ -16,7 +16,7 @@
         @closeSearchbar="showFullSearch = false">
 
         <template v-slot:group="{ group_name }">
-          <p class="font-semibold text-primary">{{ group_name }}</p>
+          <p class="font-semibold text-primary">{{ group_name | title }}</p>
         </template>
 
         <!-- Pages Suggestion -->
@@ -24,6 +24,36 @@
           <div class="flex items-end leading-none py-1">
             <feather-icon :icon="suggestion.icon" svgClasses="h-5 w-5" class="mr-4" />
             <span class="mt-1">{{ suggestion.title }}</span>
+          </div>
+        </template>
+
+        <!-- Files Suggestion -->
+        <template v-slot:files="{ suggestion }">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="img-container w-8 mr-3 flex">
+                <img :src="require(`@/assets/images/file-icons/${suggestion.file_ext}.png`)" :alt="suggestion.file_name" class="responsive">
+              </div>
+              <div class="leading-none mt-1">
+                <p class="mb-1">{{ suggestion.file_name }}</p>
+                <small>by {{ suggestion.from }}</small>
+              </div>
+            </div>
+            <small>{{ suggestion.size }}</small>
+          </div>
+        </template>
+
+        <!-- Contacts Suggestion -->
+        <template v-slot:contacts="{ suggestion }">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <img :src="suggestion.img" :alt="suggestion.name" class="w-8 h-8 mr-3 rounded-full">
+              <div class="leading-none mt-1">
+                <p>{{ suggestion.name }}</p>
+                <small>{{ suggestion.email }}</small>
+              </div>
+            </div>
+            <small>{{ suggestion.time }}</small>
           </div>
         </template>
 
@@ -44,7 +74,7 @@
           @click="showFullSearch = false" />
       </div>
     </div>
-    <feather-icon icon="SearchIcon" @click="showFullSearch = true" class="cursor-pointer navbar-fuzzy-search mr-4" />
+    <feather-icon icon="SearchIcon" @click="showFullSearch = true" class="cursor-pointer navbar-fuzzy-search ml-4" />
   </div>
 </template>
 

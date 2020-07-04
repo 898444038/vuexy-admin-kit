@@ -16,6 +16,7 @@
 
 <script>
 import themeConfig from '@/../themeConfig.js'
+import jwt         from "@/http/requests/auth/jwt/index.js"
 
 export default {
   data() {
@@ -68,6 +69,9 @@ export default {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   },
   async created() {
+
+    // jwt
+    jwt.init()
 
     let dir = this.$vs.rtl ? "rtl" : "ltr"
     document.documentElement.setAttribute("dir", dir)

@@ -1,17 +1,11 @@
 <!-- =========================================================================================
-  File Name: TheCustomizer.vue
-  Description: Template Customizer
-  Component Name: TheCustomizer
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-    Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
+  自定义全局配置
 ========================================================================================== -->
 
 <template>
   <div id="theme-customizer">
 
-    <!-- Open Customizer Button -->
+    <!-- 打开自定义项按钮 -->
     <vs-button
       @click.stop="active=!active"
       color="primary"
@@ -20,7 +14,7 @@
       icon-pack="feather"
       icon="icon-settings" />
 
-    <!-- Customizer Content -->
+    <!-- 自定义项内容 -->
     <vs-sidebar
       click-not-close
       hidden-background
@@ -31,8 +25,8 @@
 
         <div class="customizer-header mt-6 flex items-center justify-between px-6">
           <div>
-            <h4>THEME CUSTOMIZER</h4>
-            <small>Customize & Preview in Real Time</small>
+            <h4>自定义主题</h4>
+            <small>实时定制和预览</small>
           </div>
           <feather-icon icon="XIcon" @click.stop="active = false" class="cursor-pointer"></feather-icon>
         </div>
@@ -43,23 +37,23 @@
 
           <div class="px-6">
 
-            <!-- Layout Type -->
+            <!-- 布局类型 -->
             <div class="mt-4">
-              <h5 class="mb-2">Layout Type</h5>
+              <h5 class="mb-2">布局类型</h5>
               <div>
-                <vs-radio v-model="layoutType" vs-value="vertical" class="mr-4" vs-name="layout-type-vertical">Vertical</vs-radio>
-                <vs-radio v-model="layoutType" vs-value="horizontal" class="mr-4" vs-name="layout-type-horizontal">Horizontal</vs-radio>
+                <vs-radio v-model="layoutType" vs-value="vertical" class="mr-4" vs-name="layout-type-vertical">垂直</vs-radio>
+                <vs-radio v-model="layoutType" vs-value="horizontal" class="mr-4" vs-name="layout-type-horizontal">水平</vs-radio>
               </div>
             </div>
 
             <vs-divider />
 
-            <!-- THEME COLORS -->
+            <!-- 主题颜色 -->
             <div>
-              <h5 class="mb-4">Theme Color</h5>
+              <h5 class="mb-4">主题颜色</h5>
               <ul class="clearfix">
 
-                <!-- Color Square -->
+                <!-- 主色调 -->
                 <li
                   v-for="color in themeColors"
                   :key="color"
@@ -68,7 +62,7 @@
                   class="w-10 cursor-pointer h-10 rounded-lg m-2 float-left"
                   @click="updatePrimaryColor(color)" />
 
-                <!-- Custom Color Square -->
+                <!-- 自定义颜色 -->
                 <li
                   :style="{backgroundColor: customPrimaryColor}"
                   :class="{'shadow-outline': customPrimaryColor == primaryColor}"
@@ -85,15 +79,15 @@
 
             <!-- THEME -->
             <div class="mt-4">
-              <h5 class="mb-2">Theme Mode</h5>
+              <h5 class="mb-2">主题模式</h5>
               <div>
-                <vs-radio v-model="themeMode" vs-value="light" class="mr-4" vs-name="theme-mode-light">Light</vs-radio>
-                <vs-radio v-model="themeMode" vs-value="dark" class="mr-4" vs-name="theme-mode-dark">Dark</vs-radio>
+                <vs-radio v-model="themeMode" vs-value="light" class="mr-4" vs-name="theme-mode-light">明亮模式</vs-radio>
+                <vs-radio v-model="themeMode" vs-value="dark" class="mr-4" vs-name="theme-mode-dark">暗黑模式</vs-radio>
                 <vs-radio
                   v-if="layoutType === 'vertical'"
                   v-model="themeMode"
                   vs-value="semi-dark"
-                  vs-name="theme-mode-semi-dark">Semi Dark</vs-radio>
+                  vs-name="theme-mode-semi-dark">半暗模式</vs-radio>
               </div>
             </div>
 
@@ -101,9 +95,9 @@
 
             <template v-if="layoutType === 'vertical'">
 
-              <!-- COLLAPSE SIDEBAR -->
+              <!-- 折叠侧边栏 -->
               <div class="mt-4 flex justify-between">
-                <h5>Collapse Sidebar</h5>
+                <h5>折叠侧边栏</h5>
                 <vs-switch v-model="reduced_sidebar" />
               </div>
 
@@ -111,22 +105,21 @@
 
             </template>
 
-            <!-- NAVBAR COLOR -->
-
+            <!-- 导航栏颜色 -->
             <template v-if="layoutType === 'vertical'">
 
               <div class="mt-4">
-                <h5>Navbar Color</h5>
+                <h5>导航栏颜色</h5>
                 <ul class="clearfix">
 
-                  <!-- WHITE COLOR -->
+                  <!-- 白色导航栏 -->
                   <li
                     :style="{background: navbarColorInitial}"
                     class="w-10 m-2 h-10 rounded-lg float-left cursor-pointer border border-solid d-theme-border-grey-light"
                     :class="navbarColorOptionClasses(navbarColorInitial)"
                     @click="navbarColorLocal = navbarColorInitial " />
 
-                  <!-- THEME COLORS -->
+                  <!-- 导航栏颜色 -->
                   <li
                     v-for="color in themeColors"
                     :key="color"
@@ -135,7 +128,7 @@
                     class="w-10 cursor-pointer h-10 rounded-lg m-2 float-left"
                     @click="navbarColorLocal = color" />
 
-                  <!-- CUSTOM COLOR -->
+                  <!-- 自定义导航栏颜色 -->
                   <li
                     :style="{backgroundColor: customNavbarColor}"
                     :class="navbarColorOptionClasses(navbarColorOptionClasses)"
@@ -147,62 +140,34 @@
                   </li>
                 </ul>
               </div>
-              <!-- /NAVBAR COLOR -->
+              <!-- /导航栏颜色 -->
 
               <vs-divider />
 
             </template>
 
-            <!-- NAVBAR TYPE -->
+            <!-- 导航栏类型 -->
             <div class="mt-4">
-              <h5 class="mb-2">{{ (layoutType === 'vertical' || windowWidth &lt; 1200) ? "Navbar" : "Nav Menu" }} Type</h5>
+              <h5 class="mb-2">{{ (layoutType === 'vertical' || windowWidth &lt; 1200) ? "导航栏" : "导航菜单" }}类型</h5>
               <div>
                 <vs-radio
                   v-if="layoutType === 'vertical' || windowWidth < 1200"
                   v-model="navbarTypeLocal"
                   vs-value="hidden"
                   class="mr-4"
-                  vs-name="navbar-type-hidden">Hidden</vs-radio>
+                  vs-name="navbar-type-hidden">隐藏</vs-radio>
 
-                <vs-radio v-model="navbarTypeLocal" vs-value="static" class="mr-4" vs-name="navbar-type-static">Static</vs-radio>
-                <vs-radio v-model="navbarTypeLocal" vs-value="sticky" vs-name="navbar-type-sticky" class="mr-4">Sticky</vs-radio>
-                <vs-radio v-model="navbarTypeLocal" vs-value="floating" vs-name="navbar-type-floating">Floating</vs-radio>
+                <vs-radio v-model="navbarTypeLocal" vs-value="static" class="mr-4" vs-name="navbar-type-static">静止</vs-radio>
+                <vs-radio v-model="navbarTypeLocal" vs-value="sticky" vs-name="navbar-type-sticky" class="mr-4">固定</vs-radio>
+                <vs-radio v-model="navbarTypeLocal" vs-value="floating" vs-name="navbar-type-floating">浮动</vs-radio>
               </div>
             </div>
 
             <vs-divider />
 
-            <!-- FOOTER TYPE -->
+            <!-- 路由跳转动画 -->
             <div class="mt-4">
-              <h5 class="mb-2">Footer Type</h5>
-              <div>
-                <vs-radio v-model="footerTypeLocal" vs-value="hidden" class="mr-4" vs-name="footer-type-hidden">Hidden</vs-radio>
-                <vs-radio v-model="footerTypeLocal" vs-value="static" class="mr-4" vs-name="footer-type-static">Static</vs-radio>
-                <vs-radio v-model="footerTypeLocal" vs-value="sticky" vs-name="footer-type-sticky">Sticky</vs-radio>
-              </div>
-            </div>
-
-            <vs-divider />
-
-            <!-- RTL -->
-            <div class="mt-4 flex justify-between">
-              <h5 class="mb-2">RTL</h5>
-              <vs-switch v-model="rtl" />
-            </div>
-
-            <vs-divider />
-
-            <!-- SHOW SCROLL TO TOP -->
-            <div class="mt-4 flex justify-between">
-              <h5 class="mb-2">Hide Scroll To Top</h5>
-              <vs-switch v-model="hideScrollToTopLocal" />
-            </div>
-
-            <vs-divider />
-
-            <!-- ROUTER ANIMATION -->
-            <div class="mt-4">
-              <h5 class="mb-2">Router Animation {{ routerTransitionLocal }}</h5>
+              <h5 class="mb-2">路由跳转动画 {{ routerTransitionLocal }}</h5>
               <vs-select v-model="routerTransitionLocal">
                 <vs-select-item
                   v-for="(item,index) in routerTransitionsList"
@@ -210,6 +175,36 @@
                   :value="item.value"
                   :text="item.text" />
               </vs-select>
+            </div>
+
+            <vs-divider />
+
+            <!-- 页脚类型 -->
+            <div class="mt-4">
+              <h5 class="mb-2">页脚类型</h5>
+              <div>
+                <vs-radio v-model="footerTypeLocal" vs-value="hidden" class="mr-4" vs-name="footer-type-hidden">隐藏</vs-radio>
+                <vs-radio v-model="footerTypeLocal" vs-value="static" class="mr-4" vs-name="footer-type-static">静止</vs-radio>
+                <vs-radio v-model="footerTypeLocal" vs-value="sticky" vs-name="footer-type-sticky">固定</vs-radio>
+              </div>
+            </div>
+
+            <vs-divider />
+
+            
+
+            <!-- RTL -->
+            <div class="mt-4 flex justify-between">
+              <h5 class="mb-2">右到左布局</h5>
+              <vs-switch v-model="rtl" />
+            </div>
+
+            <vs-divider />
+
+            <!-- SHOW SCROLL TO TOP -->
+            <div class="mt-4 flex justify-between">
+              <h5 class="mb-2">隐藏滚动到顶部按钮</h5>
+              <vs-switch v-model="hideScrollToTopLocal" />
             </div>
 
           </div>
