@@ -15,6 +15,6 @@ import i18nData from './i18nData'
 Vue.use(VueI18n)
 
 export default new VueI18n({
-  locale: 'en', // set default locale
+  locale: 'zh', // 设置默认语言
   messages: i18nData,
 })

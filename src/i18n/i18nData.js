@@ -1,5 +1,160 @@
 // en, de, fr, pt
 export default {
+	zh: {
+		Dashboard: '仪表盘',
+			Analytics: '数据可视化',
+			eCommerce: '商城',
+
+		Apps: '应用',
+			Todo: '待办事项',
+			Chat: '聊天',
+			Email: '邮箱',
+			Calendar: '日历',
+			FullCalendar: '完整日历',
+			SimpleCalendar: '基础日历',
+			// 商城
+			Shop: '商品',
+			ItemDetails: '商品详情',
+			Cart: '购物车',
+			WishList: '愿望清单',
+			Checkout: '结账支付',
+			//用户
+			User: '用户',
+			View: '详情',
+			Edit: '编辑',
+			List: '列表',
+
+		UI: '界面',
+			DataList: '数据表格',
+			ListView: '数据列表',
+			ThumbView: '视图列表',
+
+			Grid: '网格',
+			Vuesax: 'Vuesax',
+			Tailwind: 'Tailwind',
+
+			Colors: '颜色',
+
+			Card: '卡片',
+			Basic: '基础',
+			Statistics: '统计',
+			Vuexy: 'Vuexy',
+			CardActions: '卡片操作',
+			CardColors: '卡片颜色',
+
+			Components: '组件',
+			Alert: '警告框',
+			Avatar: '图标',
+			Badge: '标记',
+			Breadcrumb: '面包屑',
+			Button: '按钮',
+			ButtonGroup: '按钮组',
+			Chip: '碎片',
+			Collapse: '折叠面板',
+			Dialogs: '对话框',
+			Divider: '分割线',
+			DropDown: '下拉列表',
+			Loading: '等待加载',
+			Navbar: '导航栏',
+			Notifications: '通知',
+			Pagination: '分页',
+			Popup: '弹出层',
+			Progress: '进度条',
+			Sidebar: '侧边栏',
+			Slider: '滑块',
+			Tabs: '标签页',
+			Tooltip: '工具提示',
+			Upload: '上传',
+
+			Extensions: '扩展',
+			Select: '下拉框',
+			QuillEditor: 'Quill编辑器',
+			DragAndDrop: '拖放',
+			Datepicker: '日期选择器',
+			DatetimePicker: '日期时间选择器',
+			AccessControl: '权限控制',
+			I18n: '语言国际化',
+			Carousel: '轮播图',
+			Clipboard: '剪贴板',
+			ContextMenu: '右键菜单',
+			StarRatings: '评分',
+			Autocomplete: '自动完成',
+			Tree: '树',
+			// "Import/Export": 'Import/Export',
+			Import: '导入',
+			Export: '导出',
+			ExportSelected: "导出选定项",
+
+		FormsAndTable: '表单&表格',
+			FormElements: 'Form Elements',
+			Switch: '开关',
+			Checkbox: '多选框',
+			Radio: '单选框',
+			Input: '输入框',
+			NumberInput: '计数器',
+			Textarea: '文本域',
+
+			FormLayouts: '表单布局',
+
+			FormWizard: '表单步骤',
+
+			FormValidation: '表单验证',
+
+            FormInputGroup: '复合型输入框',
+
+			Table: '表格',
+
+			agGridTable: 'agGrid 表格',
+		
+		Pages: '页面',
+            Profile: '简介',
+			UserSettings: '用户设置',
+			FAQ: '常见问题',
+			KnowledgeBase: '知识库',
+			Search: '搜索',
+			Invoice: '发票',
+
+			Authentication: '身份验证',
+			Login: '登录',
+			Register: '注册',
+			ForgotPassword: '忘记密码',
+			ResetPassword: '重置密码',
+			LockScreen: '锁屏',
+
+			Miscellaneous: '杂项',
+			NotAuthorized: '未经授权',
+			Maintenance: '维护',
+			ComingSoon: '倒计时',
+			404: '404',
+			500: '500',
+			
+		ChartsAndMaps: '图表&地图',
+			Charts: '图表',
+			ApexCharts: 'Apex 图表',
+			chartjs: 'chartjs',
+			echarts: 'echarts',
+			chartist: 'chartist',
+
+			GoogleMap: 'Google Map',
+
+		
+			Error: '错误',
+
+		Others: 'Others',
+			MenuLevels: 'Menu Levels',
+			MenuLevel2p1: 'Menu Level 2.1',
+			MenuLevel2p2: 'Menu Level 2.2',
+			MenuLevel3p1: 'Menu Level 3.1',
+			MenuLevel3p2: 'Menu Level 3.2',
+			DisabledMenu: 'Disabled Menu',
+			Support: '支持',
+			Documentation: '文档',
+			RaiseSupport: '提高支持',
+			demoTitle: 'Card Title',
+			demoText: 'Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups muffin halvah lollipop. Chocolate cake oat cake tiramisu marzipan sugar plum. Donut sweet pie oat cake dragée fruitcake cotton candy lemon drops.'
+	
+        
+	},
 	en: {
 		Dashboard: 'Dashboard',
 		eCommerce: 'eCommerce',
